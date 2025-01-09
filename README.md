@@ -36,7 +36,7 @@ A documentation of the endpoints is automatically generated at http://localhost:
 
 **POST endpoints**
 
-- http://localhost:8000/spotiflow/: Processing endpoint to run the algorithm.
+- http://localhost:8000/spotiflow/process: Processing endpoint to run the algorithm.
 
 ## Running the server with `docker-compose`
 
