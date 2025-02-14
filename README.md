@@ -27,12 +27,12 @@ A documentation of the endpoints is automatically generated at http://localhost:
 
 **GET endpoints**
 
-- http://localhost:8000/: Listing of running algorithm servers.
+- http://localhost:8000/ : Running algorithm message.
 - http://localhost:8000/version: Version of the `imaging-server-kit` package.
 - http://localhost:8000/spotiflow/info: Web page displaying project metadata.
 - http://localhost:8000/spotiflow/demo: Plotly Dash web demo app.
 - http://localhost:8000/spotiflow/parameters: Json Schema representation of algorithm parameters.
-- http://localhost:8000/spotiflow/sample_images: Bytes string representation of the sample images.
+- http://localhost:8000/spotiflow/sample_images: Byte string representation of the sample images.
 
 **POST endpoints**
 

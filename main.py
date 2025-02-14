@@ -33,16 +33,12 @@ class Server(serverkit.Server):
 
     def run_algorithm(self, image: np.ndarray, **kwargs) -> List[tuple]:
         """Runs the algorithm."""
-        model = Spotiflow.from_pretrained("general")
+        model = Spotiflow.from_pretrained("general", map_location="cpu")
 
         points, details = model.predict(image)
 
-        points_params = {
-            "name": "Spotiflow result",
-        }
-
         return [
-            (points, points_params, "points")
+            (points, {"name": "Detected spots"}, "points")
         ]
 
     def load_sample_images(self) -> List["np.ndarray"]:
