@@ -3,8 +3,6 @@
 
 Implementation of a web server for [Spotiflow](https://github.com/weigertlab/spotiflow).
 
-Author: EPFL Center for Imaging
-
 ## Installing the algorithm server with `pip`
 
 Install dependencies:

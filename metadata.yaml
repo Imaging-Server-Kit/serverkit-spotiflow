@@ -1,7 +1,6 @@
 project_slug: "spotiflow"
 project_url: "https://github.com/weigertlab/spotiflow"
 serverkit_repo_url: "https://github.com/Imaging-Server-Kit/serverkit-spotiflow"
-serverkit_author: "EPFL Center for Imaging"
 project_name: "Spotiflow"
 description: "Accurate and efficient spot detection with stereographic flow."
 used_for:
