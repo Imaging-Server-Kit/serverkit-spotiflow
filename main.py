@@ -7,8 +7,10 @@ import skimage.io
 import imaging_server_kit as serverkit
 from spotiflow.model import Spotiflow
 
+
 class Parameters(BaseModel):
     """Defines the algorithm parameters"""
+
     image: str = Field(
         ...,
         title="Image",
@@ -23,11 +25,12 @@ class Parameters(BaseModel):
             raise ValueError("Array has the wrong dimensionality.")
         return image_array
 
-class Server(serverkit.Server):
+
+class SpotiflowServer(serverkit.AlgorithmServer):
     def __init__(
         self,
-        algorithm_name: str="spotiflow",
-        parameters_model: Type[BaseModel]=Parameters
+        algorithm_name: str = "spotiflow",
+        parameters_model: Type[BaseModel] = Parameters,
     ):
         super().__init__(algorithm_name, parameters_model)
 
@@ -37,9 +40,7 @@ class Server(serverkit.Server):
 
         points, details = model.predict(image)
 
-        return [
-            (points, {"name": "Detected spots"}, "points")
-        ]
+        return [(points, {"name": "Detected spots"}, "points")]
 
     def load_sample_images(self) -> List["np.ndarray"]:
         """Load one or multiple sample images."""
@@ -47,8 +48,9 @@ class Server(serverkit.Server):
         images = [skimage.io.imread(image_path) for image_path in image_dir.glob("*")]
         return images
 
-server = Server()
+
+server = SpotiflowServer()
 app = server.app
 
-if __name__=='__main__':
+if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000)
